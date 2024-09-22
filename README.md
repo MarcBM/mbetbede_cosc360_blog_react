@@ -11,6 +11,8 @@ https://github.com/MarcBM/mbetbede_cosc360_blog_react
 - run `npm start` to start the react app.
 - visit `localhost:3000` or replace the port number with whichever port it has run on to see the home page.
 
+I am currently unsure as to whether or not the authorisation api key will work, which may result in incorrect returns for both the posts and post details pages.
+
 ## Report
 
 ### Approach

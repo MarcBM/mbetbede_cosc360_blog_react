@@ -23,6 +23,11 @@
 }
 
 .contents {
+	display: flex;
+	align-items: left;
+	justify-content: left;
+	text-align: left;
+	font-size: 1.5rem;
 }
 
 .title {
@@ -30,6 +35,7 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	font-size: 2rem;
 	height: 60px;
 	padding: 0.5rem 0.25rem;
 }

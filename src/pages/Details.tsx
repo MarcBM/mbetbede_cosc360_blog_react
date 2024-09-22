@@ -2,25 +2,47 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import detailsStyles from '../styles/Details.module.css';
 import { useEffect, useState } from 'react';
-import posts from '../data/posts.json';
+
+const api_url = 'http://mbetbede_cosc360_blog.test/api/posts/';
+const api_key =
+	'66cd7ad8428e5d5c5c0fd2e0|JpiLfSjt1uE2cIsCv027FZnLDtxwHkFOlRIl4SQ0c0170d01';
 
 export default function Details() {
 	const { id } = useParams<{ id: string }>();
-	const [post, setPost] = useState<
-		{ title: string; content: string } | undefined
-	>(undefined);
+	const [post, setPost] = useState<{ title: string; content: string } | null>(
+		null
+	);
 
 	useEffect(() => {
-		const fetchRecord = () => {
-			const fetchedPost = posts.data.find(post => post._id === id);
-			setPost(fetchedPost);
-		};
-
-		fetchRecord();
-	}, [id]);
+		fetch(api_url + id, {
+			method: 'GET',
+			headers: {
+				Authorization: 'Bearer ' + api_key,
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(response => response.json())
+			.then(data => {
+				setPost(data.data);
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
+	}, [id, setPost]);
 
 	if (!post) {
-		return <div>Post not found!</div>;
+		return (
+			<>
+				<Header />
+				<main className={detailsStyles.main}>
+					<div className={detailsStyles.container}>
+						<div className={detailsStyles.title}>
+							<h1>Loading Post...</h1>
+						</div>
+					</div>
+				</main>
+			</>
+		);
 	}
 
 	return (

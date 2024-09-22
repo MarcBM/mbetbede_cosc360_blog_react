@@ -10,14 +10,15 @@ const api_key =
 
 function App() {
 	const [posts, setPosts] = useState<
-		[
-			{
-				_id: string;
-				title: string;
-				content: string;
-			}
-		]
-	>([{ _id: '', title: '', content: '' }]);
+		| [
+				{
+					_id: string;
+					title: string;
+					content: string;
+				}
+		  ]
+		| null
+	>(null);
 
 	useEffect(() => {
 		fetch(api_url, {
@@ -37,7 +38,18 @@ function App() {
 	}, [setPosts]);
 
 	if (!posts) {
-		return <div>No posts found!</div>;
+		return (
+			<>
+				<Header />
+				<main className={appStyles.main}>
+					<div className={appStyles.container}>
+						<div className={appStyles.title}>
+							<h1>Loading Posts...</h1>
+						</div>
+					</div>
+				</main>
+			</>
+		);
 	}
 
 	return (
