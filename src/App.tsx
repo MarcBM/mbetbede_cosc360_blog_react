@@ -9,7 +9,7 @@ function App() {
 			<main className="main">
 				<div className="container">
 					{postsData.map(post => (
-						<div className="post">
+						<div className="post" key={post._id}>
 							<h2 className="title">{post.title}</h2>
 						</div>
 					))}
