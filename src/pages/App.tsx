@@ -1,6 +1,7 @@
 import appStyles from '../styles/App.module.css';
 import posts from '../data/posts.json';
 import Header from '../components/Header';
+import PostCard from '../components/PostCard';
 
 function App() {
 	const postsData = posts.data;
@@ -10,9 +11,7 @@ function App() {
 			<main className={appStyles.main}>
 				<div className={appStyles.container}>
 					{postsData.map(post => (
-						<div className={appStyles.post} key={post._id}>
-							<h2 className={appStyles.title}>{post.title}</h2>
-						</div>
+						<PostCard key={post._id} _id={post._id} title={post.title} />
 					))}
 				</div>
 			</main>
