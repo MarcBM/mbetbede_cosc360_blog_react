@@ -14,7 +14,6 @@ function App() {
 				{
 					_id: string;
 					title: string;
-					content: string;
 				}
 		  ]
 		| null
