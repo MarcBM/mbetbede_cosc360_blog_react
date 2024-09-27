@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const api_url = 'http://mbetbede_cosc360_blog.test/api/posts/';
 const api_key =
-	'66cd7ad8428e5d5c5c0fd2e0|JpiLfSjt1uE2cIsCv027FZnLDtxwHkFOlRIl4SQ0c0170d01';
+	'66f6d81658ca611b5a056f03|LcLb9dPeRmkbnG1jnFWCJpomKAd9n3LXZD49fNCv3f19da7f';
 
 export default function Details() {
 	const { id } = useParams<{ id: string }>();
