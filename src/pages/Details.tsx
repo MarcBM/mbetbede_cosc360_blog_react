@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import detailsStyles from '../styles/Details.module.css';
 import { useEffect, useState } from 'react';
 
-const api_url = 'http://mbetbede_cosc360_blog.test/api/posts/';
+const api_url = 'http://34.87.237.39/api/posts/';
 const api_key =
 	'66f6d81658ca611b5a056f03|LcLb9dPeRmkbnG1jnFWCJpomKAd9n3LXZD49fNCv3f19da7f';
 
